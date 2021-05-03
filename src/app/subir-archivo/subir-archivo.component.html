@@ -1,0 +1,92 @@
+<div style="margin: 5%;">
+
+  <h3>Subir archivo</h3>
+  <mat-divider></mat-divider>
+
+  <br>
+  <button mat-raised-button>Adjuntar</button>
+
+  <br><br>
+  <button mat-raised-button class="button1">Arrastre el archivo</button>
+
+
+  <form [formGroup]="form">
+
+    <br>
+    <mat-form-field appearance="outline" class="right-field">
+      <mat-label>Titulo</mat-label>
+      <input matInput placeholder="Titulo" formControlName="input1">
+      <mat-error *ngIf="form.get('input1').hasError('required')">
+        Este campo es requerido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="left-field">
+      <mat-label>Curso</mat-label>
+      <mat-select formControlName="select1">
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="form.get('select1').hasError('required')">
+        Este campo es requerido.
+      </mat-error>
+
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="outline" class="right-field">
+      <mat-label>Escuela</mat-label>
+      <mat-select formControlName="select2">
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('select2').hasError('required')">
+        Este campo es requerido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="left-field">
+      <mat-label>Semestre</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline" class="right-field">
+      <mat-label>Plan de estudio</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="left-field">
+      <mat-label>Ciclo academico</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+
+
+    <br>
+    <mat-form-field appearance="outline" class="central-field">
+      <mat-label>Descripcion</mat-label>
+      <input matInput placeholder="Descripcion" formControlName="input2">
+      <mat-error *ngIf="form.get('input2').hasError('required')">
+        Este campo es requerido.
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+
+  <button mat-raised-button color="primary" class="button2" [disabled]="form.invalid">Subir archivo</button>
+  <br><br>
+
+</div>
