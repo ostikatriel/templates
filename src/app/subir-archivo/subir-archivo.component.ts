@@ -15,6 +15,8 @@ export class SubirArchivoComponent implements OnInit {
     select2: new FormControl('', [Validators.required]),
   })
 
+
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -22,7 +24,8 @@ export class SubirArchivoComponent implements OnInit {
       input1: new FormControl('', [Validators.required]),
       select1: new FormControl('', Validators.required),
       select2: new FormControl('', [Validators.required]),
-      input2:new FormControl('', [Validators.required]),
+      select3: new FormControl('', [Validators.required]),
+      select4: new FormControl('', [Validators.required]),
     });
   }
 

@@ -13,73 +13,62 @@
   <form [formGroup]="form">
 
     <br>
-    <mat-form-field appearance="outline" class="right-field">
+    <mat-form-field appearance="outline" class="central-field">
       <mat-label>Titulo</mat-label>
       <input matInput placeholder="Titulo" formControlName="input1">
       <mat-error *ngIf="form.get('input1').hasError('required')">
         Este campo es requerido.
       </mat-error>
     </mat-form-field>
-
-    <mat-form-field appearance="outline" class="left-field">
-      <mat-label>Curso</mat-label>
-      <mat-select formControlName="select1">
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
-      </mat-select>
-
-      <mat-error *ngIf="form.get('select1').hasError('required')">
-        Este campo es requerido.
-      </mat-error>
-
+    
+    <br>
+    <mat-form-field appearance="outline" class="central-field">
+      <mat-label>Descripcion</mat-label>
+      <input matInput placeholder="Descripcion">
     </mat-form-field>
 
     <br>
     <mat-form-field appearance="outline" class="right-field">
       <mat-label>Escuela</mat-label>
-      <mat-select formControlName="select2">
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+      <mat-select formControlName="select1">
+        <mat-option value="one">Sistemas</mat-option>
+        <mat-option value="two">Software</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('select1').hasError('required')">
+        Este campo es requerido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="left-field">
+      <mat-label>Plan de estudio</mat-label>
+      <mat-select formControlName="select2" [disabled]="form.get('select1').hasError('required')">
+        <mat-option value="one">2015</mat-option>
+        <mat-option value="two">2018</mat-option>
       </mat-select>
       <mat-error *ngIf="form.get('select2').hasError('required')">
         Este campo es requerido.
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="left-field">
-      <mat-label>Semestre</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
-      </mat-select>
-    </mat-form-field>
-
     <br>
-
     <mat-form-field appearance="outline" class="right-field">
-      <mat-label>Plan de estudio</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+      <mat-label>Ciclo academico</mat-label>
+      <mat-select formControlName="select3" [disabled]="form.get('select2').hasError('required')">
+        <mat-option value="one">Ciclo 1</mat-option>
+        <mat-option value="two">Ciclo 2</mat-option>
       </mat-select>
+      <mat-error *ngIf="form.get('select3').hasError('required')">
+        Este campo es requerido.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="left-field">
-      <mat-label>Ciclo academico</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+      <mat-label>Curso</mat-label>
+      <mat-select formControlName="select4" [disabled]="form.get('select3').hasError('required')">
+        <mat-option value="one">Matematica Basica 1</mat-option>
+        <mat-option value="two">Patrones de diseño</mat-option>
       </mat-select>
-    </mat-form-field>
-
-
-
-
-    <br>
-    <mat-form-field appearance="outline" class="central-field">
-      <mat-label>Descripcion</mat-label>
-      <input matInput placeholder="Descripcion" formControlName="input2">
-      <mat-error *ngIf="form.get('input2').hasError('required')">
+      <mat-error *ngIf="form.get('select4').hasError('required')">
         Este campo es requerido.
       </mat-error>
     </mat-form-field>
