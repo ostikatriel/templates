@@ -50,6 +50,10 @@
     margin-left: 25%;
   }
 
+  .info{
+    display: none;
+  }
+
 }
 
 .dropzone{

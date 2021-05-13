@@ -18,9 +18,12 @@ export class SubirArchivoComponent implements OnInit {
     console.log(event);
     //this.files.push(...event.addedFiles);
     //this.file=event.addedFiles[0];
-
-    this.files[0]=event.addedFiles[0];
-
+    if(event.addedFiles[0].size<50000){
+      this.files[0]=event.addedFiles[0];
+    }else{
+      console.log('tamaño no valido')
+    }
+    
   
   }
 

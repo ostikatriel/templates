@@ -32,6 +32,7 @@ export class UploadServiceService {
 
      this.http.post('http://localhost:8085/api/v1/files/uploadFile', formData).subscribe(res => {
        console.log(res);
+       alert('guardado')
     })
   }
 
