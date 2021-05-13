@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { UploadServiceService } from '../services/upload-service.service';
 
 @Component({
   selector: 'app-subir-archivo',
@@ -11,14 +12,21 @@ export class SubirArchivoComponent implements OnInit {
 
   files: File[] = [];
 
+  //file:File;
+
   onSelect(event) {
     console.log(event);
-    this.files.push(...event.addedFiles);
+    //this.files.push(...event.addedFiles);
+    //this.file=event.addedFiles[0];
+
+    this.files[0]=event.addedFiles[0];
+
+  
   }
 
   onRemove(event) {
     console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
+   this.files.splice(this.files.indexOf(event), 1);
   }
 
   valor: string = 'two';
@@ -31,7 +39,8 @@ export class SubirArchivoComponent implements OnInit {
     select4: new FormControl('', [Validators.required]),
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private uploadService:UploadServiceService) { }
 
   ngOnInit(): void {
 
@@ -43,6 +52,10 @@ export class SubirArchivoComponent implements OnInit {
       //this.form.controls.select1.setValue('two')
     }
 
+  }
+
+  Guardar(){
+    this.uploadService.subirArchivo(this.files[0]);
   }
 
 
