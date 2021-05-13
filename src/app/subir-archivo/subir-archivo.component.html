@@ -3,11 +3,22 @@
   <h3>Subir archivo</h3>
   <mat-divider></mat-divider>
 
-  <br>
-  <button mat-raised-button>Adjuntar</button>
+  <br><br>  
+  <ngx-dropzone (change)="onSelect($event)"  [multiple]="false" >
+    
+    <ngx-dropzone-label>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+       cloud_upload
+      </mat-icon>
+      <br>
+      Arrastre y suelte un archivo aquí o haga click!
+    </ngx-dropzone-label>
 
-  <br><br>
-  <button mat-raised-button class="button1">Arrastre el archivo</button>
+    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)" class="upload">
+      <ngx-dropzone-label>{{ f.name }}</ngx-dropzone-label>
+    </ngx-dropzone-preview>
+
+  </ngx-dropzone>
 
 
   <form [formGroup]="form">
@@ -78,4 +89,6 @@
   <button mat-raised-button color="primary" class="button2" [disabled]="form.invalid">Subir archivo</button>
   <br><br>
 
+
 </div>
+

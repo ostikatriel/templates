@@ -16,6 +16,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,11 @@ import {MatDividerModule} from '@angular/material/divider';
     ReactiveFormsModule,
 
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+
+    NgxDropzoneModule,
+    MatIconModule
+
 
   ],
   providers: [],
