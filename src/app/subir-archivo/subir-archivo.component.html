@@ -4,17 +4,18 @@
   <mat-divider></mat-divider>
 
   <br><br>  
-  <ngx-dropzone (change)="onSelect($event)"  [multiple]="false" >
+  <ngx-dropzone (change)="onSelect($event)"  [multiple]="false" class="dropzone" >
     
     <ngx-dropzone-label>
       <mat-icon aria-hidden="false" aria-label="Example home icon">
        cloud_upload
       </mat-icon>
       <br>
-      Arrastre y suelte un archivo aquí o haga click!
+     Arrastre y suelte un archivo aquí o haga click!
+      
     </ngx-dropzone-label>
 
-    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)" class="upload">
+    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)" class="preview">
       <ngx-dropzone-label>{{ f.name }}</ngx-dropzone-label>
     </ngx-dropzone-preview>
 
