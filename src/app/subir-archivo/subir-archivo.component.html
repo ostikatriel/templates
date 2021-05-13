@@ -12,7 +12,9 @@
       </mat-icon>
       <br>
       <span class="info">Arrastre y suelte un archivo aquí o haga click!</span>
-   
+      <mat-error *ngIf="grande" style="font-size: 12px;">
+        Excede el tamaño de 50MB.
+      </mat-error>
       
     </ngx-dropzone-label>
 
@@ -20,7 +22,10 @@
       <ngx-dropzone-label >{{ f.name }}</ngx-dropzone-label>
     </ngx-dropzone-preview>
 
+    
+
   </ngx-dropzone>
+ 
 
 
   <form [formGroup]="form">
@@ -88,7 +93,7 @@
 
   </form>
 
-  <button mat-raised-button color="primary" class="button2" [disabled]="form.invalid" (click)="Guardar()">Subir archivo</button>
+  <button mat-raised-button color="primary" class="button2" [disabled]="form.invalid || !files[0]" (click)="Guardar()">Subir archivo</button>
   <br><br>
 
 

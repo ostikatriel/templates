@@ -7,49 +7,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UploadServiceService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
-  subirArchivo(file :File ){
+  subirArchivo(file: File) {
 
-    const data={
+    const data = {
       "title": "11",
-    "description": "22",
-    "semesterName": "33",
-    "course": {
+      "description": "22",
+      "semesterName": "33",
+      "course": {
         "id": 4
-    },
-    "student": {
+      },
+      "student": {
         "id": 34
+      }
     }
-    }
-    const formData = new FormData();  
+    const formData = new FormData();
 
-    const requestBlob = new Blob([JSON.stringify(data)], { type: "application/json" });
+    formData.append("file", file);
+    formData.append("fileInfo", JSON.stringify(data));
 
-    formData.append("file", file); 
-    formData.append("fileInfo",  JSON.stringify(data));  
-
-     this.http.post('http://localhost:8085/api/v1/files/uploadFile', formData).subscribe(res => {
-       console.log(res);
-       alert('guardado')
+    this.http.post('http://localhost:8085/api/v1/files/uploadFile', formData).subscribe(res => {
+      console.log(res);
+      alert('guardado')
     })
   }
 
-  /*
-file File
-fileInfo {
-    "title": "11",
-    "description": "22",
-    "semesterName": "",
-    "course": {
-        "id": 4
-    },
-    "student": {
-        "id": 34
-    }
-}
-  localhost:8085/api/v1/files/uploadFile
-  
-  */
 }

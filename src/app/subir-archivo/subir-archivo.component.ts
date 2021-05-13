@@ -12,25 +12,7 @@ export class SubirArchivoComponent implements OnInit {
 
   files: File[] = [];
 
-  //file:File;
-
-  onSelect(event) {
-    console.log(event);
-    //this.files.push(...event.addedFiles);
-    //this.file=event.addedFiles[0];
-    if(event.addedFiles[0].size<50000){
-      this.files[0]=event.addedFiles[0];
-    }else{
-      console.log('tamaño no valido')
-    }
-    
-  
-  }
-
-  onRemove(event) {
-    console.log(event);
-   this.files.splice(this.files.indexOf(event), 1);
-  }
+  grande: boolean = false;
 
   valor: string = 'two';
 
@@ -43,7 +25,7 @@ export class SubirArchivoComponent implements OnInit {
   });
 
   constructor(private formBuilder: FormBuilder,
-    private uploadService:UploadServiceService) { }
+    private uploadService: UploadServiceService) { }
 
   ngOnInit(): void {
 
@@ -57,7 +39,24 @@ export class SubirArchivoComponent implements OnInit {
 
   }
 
-  Guardar(){
+  onSelect(event) {
+    console.log(event);
+    if (event.addedFiles[0].size < 50000000) {//50MB=50 000 000
+      this.files[0] = event.addedFiles[0];
+      this.grande = false;
+    } else {
+      this.files.splice(this.files.indexOf(event), 1);
+      this.grande = true;
+      console.log('tamaño no valido')
+    }
+  }
+  onRemove(event) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
+
+  Guardar() {
     this.uploadService.subirArchivo(this.files[0]);
   }
 
